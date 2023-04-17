@@ -2,6 +2,8 @@
 
 // const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
-	return <main>hello</main>;
-}
+const Page: React.FC = () => {
+	return <div>Home</div>;
+};
+
+export default Page;
