@@ -13,7 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 	return (
 		<html lang="en">
 			<body>
-				<header style={{ background: '#f0f0f0f0' }}>
+				<header className="container mx-auto bg-gray-100 rounded-lg p-4 mb-5">
 					<nav>
 						<ul>
 							<li>
