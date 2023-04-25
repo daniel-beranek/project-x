@@ -25,6 +25,17 @@ module.exports = {
 	root: true,
 	rules: {
 		'@typescript-eslint/consistent-type-imports': 'error',
+		'@typescript-eslint/explicit-function-return-type': 'error',
+		'@typescript-eslint/explicit-module-boundary-types': 'error',
+		'@typescript-eslint/no-explicit-any': 'warn',
+		'no-console': 'warn',
+		'no-warning-comments': [
+			'warn',
+			{
+				terms: ['todo', 'fixme', 'hack'],
+				location: 'anywhere',
+			},
+		],
 		'react/prop-types': 'off',
 		'react/react-in-jsx-scope': 'off',
 	},
@@ -39,4 +50,5 @@ module.exports = {
 			},
 		},
 	},
+	ignorePatterns: ['./tsconfig.json'],
 };
