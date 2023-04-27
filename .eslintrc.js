@@ -50,5 +50,4 @@ module.exports = {
 			},
 		},
 	},
-	ignorePatterns: ['./tsconfig.json'],
 };

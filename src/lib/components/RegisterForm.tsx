@@ -3,11 +3,15 @@
 import { useForm } from 'react-hook-form';
 import validator from 'validator';
 
+import { useSupabase } from '../supabase/supabaseProvider';
+
 type FormValues = {
 	email: string;
 };
 
 export const RegisterForm: React.FC = () => {
+	const { supabase } = useSupabase();
+
 	const {
 		register,
 		handleSubmit,
@@ -21,7 +25,11 @@ export const RegisterForm: React.FC = () => {
 			<h2 className="text-2xl font-bold">Register</h2>
 			<form
 				// TODO: Add validator.normalizeEmail()
-				onSubmit={handleSubmit((data) => console.log(data))}
+				onSubmit={handleSubmit(async ({ email }) => {
+					const res = await supabase.auth.signInWithOtp({ email });
+
+					console.log(res);
+				})}
 				className="flex flex-col gap-2 bg-green-100 p-5 rounded-lg"
 			>
 				<div>Google Provider</div>
