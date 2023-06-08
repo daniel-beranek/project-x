@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
 
-import { LoginForm } from '@/lib/components/LoginForm';
-import { RegisterForm } from '@/lib/components/RegisterForm';
-import { ResetPassword } from '@/lib/components/ResetPassword';
+import { LoginForm } from '@lib/components/LoginForm';
+import { RegisterForm } from '@lib/components/RegisterForm';
+import { ResetPassword } from '@lib/components/ResetPassword';
 
 const Page: NextPage = () => {
 	return (

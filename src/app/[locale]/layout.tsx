@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-
-import type { LayoutProps } from './types';
-import './globals.css';
 import { notFound } from 'next/navigation';
 
-import { SupabaseProvider } from '@/lib/supabase/supabaseProvider';
 import { useLocale, useTranslations } from 'next-intl';
+
+import { Providers } from './providers';
+import type { LayoutProps } from './types';
+import './globals.css';
 
 // import { Inter } from 'next/font/google';
 
@@ -28,7 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ children, params }) => {
 	return (
 		<html lang={locale}>
 			<body>
-				<SupabaseProvider>
+				<Providers>
 					<header className="container mx-auto bg-gray-100 rounded-lg p-4 mb-5">
 						<nav>
 							<ul>
@@ -66,7 +66,7 @@ const Layout: React.FC<LayoutProps> = ({ children, params }) => {
 					</header>
 					{t('title')}
 					{children}
-				</SupabaseProvider>
+				</Providers>
 			</body>
 		</html>
 	);
