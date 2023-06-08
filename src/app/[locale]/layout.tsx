@@ -3,7 +3,10 @@ import Link from 'next/link';
 
 import type { LayoutProps } from './types';
 import './globals.css';
+import { notFound } from 'next/navigation';
+
 import { SupabaseProvider } from '@/lib/supabase/supabaseProvider';
+import { useLocale, useTranslations } from 'next-intl';
 
 // import { Inter } from 'next/font/google';
 
@@ -14,9 +17,16 @@ export const metadata: Metadata = {
 	description: 'desc',
 };
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, params }) => {
+	const locale = useLocale();
+	const t = useTranslations('Layout');
+
+	if (params?.locale !== locale) {
+		notFound();
+	}
+
 	return (
-		<html lang="en">
+		<html lang={locale}>
 			<body>
 				<SupabaseProvider>
 					<header className="container mx-auto bg-gray-100 rounded-lg p-4 mb-5">
@@ -54,6 +64,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 							</ul>
 						</nav>
 					</header>
+					{t('title')}
 					{children}
 				</SupabaseProvider>
 			</body>
